@@ -119,6 +119,19 @@ export default {
       this.getMoreSearch();
     });
   },
+  watch:{
+    $route(to,from){
+      if(to.path === '/search'){
+        this.inSearchRoute = true;
+        return
+      }
+      if(from.path === '/search'){
+        this.inSearchRoute = false;
+        this.keyWords = ''
+      }
+      
+    }
+  }
 };
 </script>
 
